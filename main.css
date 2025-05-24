@@ -23,12 +23,122 @@ body {
 .background {
   width: 100%;
   height: 100%;
-  z-index: 100000;
+  z-index: 1000; /* abaixo do botão */
   position: absolute;
   top: 0;
   left: 0;
   animation: blur 8s ease-out forwards;
+  pointer-events: none; /* isso permite o clique atravessar */
 }
+#botaoReset, .btn-limpar {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff6a00, 0 0 20px #ee0979;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+  outline: none;
+  
+  /* Inicial escondido e deslocado para a esquerda */
+  opacity: 0;
+  transform: translateX(-30px);
+  position: fixed; /* pra garantir que continue fixo */
+  left: 10px;
+  z-index: 9999999999999;
+}
+
+#botaoReset {
+  top: 10px;
+}
+
+.btn-limpar {
+  top: 60px;
+}
+
+#botaoReset.show, .btn-limpar.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#botaoReset:hover, .btn-limpar:hover {
+  box-shadow: 0 0 20px #ff6a00, 0 0 40px #ee0979;
+  transform: scale(1.05);
+  animation: pulsate 2s infinite;
+}
+
+/* Animação pulsante */
+@keyframes pulsate {
+  0%, 100% {
+    box-shadow: 0 0 20px #ff6a00, 0 0 40px #ee0979;
+  }
+  50% {
+    box-shadow: 0 0 30px #ff6a00, 0 0 60px #ee0979;
+  }
+}
+
+
+@keyframes pulsate {
+  0%, 100% {
+    box-shadow: 0 0 20px #ff6a00, 0 0 40px #ee0979;
+  }
+  50% {
+    box-shadow: 0 0 30px #ff6a00, 0 0 60px #ee0979;
+  }
+}
+
+button {
+  all: unset; /* remove quase todos os estilos padrão */
+  cursor: pointer;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #e63946; /* cor base */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #ff1f4a;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* se quiser, pode especificar só para os botões que tem essas classes */
+#botaoReset, .btn-limpar {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 18px;
+  font-family: 'poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #e63946;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+#botaoReset:hover, .btn-limpar:hover {
+  background-color: #ff1f4a;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+#botaoReset:active, .btn-limpar:active {
+  transform: scale(0.98);
+}
+
 
 @keyframes blur {
   0% {
@@ -47,6 +157,7 @@ body {
   position: fixed;
   left: 50%;
   top: 0;
+  z-index: 0;
   transform: translateX(-50%);
   width: 100%;
   height: 100%;

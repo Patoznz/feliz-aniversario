@@ -211,4 +211,121 @@ function sticker() {
 
 window.onresize = function (event) {
   recize_notes();
-};
+}
+
+
+// function limparTela() {
+//   const bodyChildren = document.body.children;
+//   variolaDoMacaco = false
+
+//   for (let i = 0; i < bodyChildren.length; i++) {
+//     const el = bodyChildren[i];
+
+//     // mantém as flores, o botão de limpar e o botão de reset visíveis
+//     if (
+//       !el.classList.contains("night") &&
+//       !el.classList.contains("flowers") &&
+//       !el.classList.contains("btn-limpar") &&
+//       el.id !== "botaoReset"
+//     ) {
+//       el.style.display = "none";
+//     }
+//   }
+
+// }
+
+
+let variolaDoMacaco = true
+
+function limparTela() {
+  const scissors = document.getElementById('scissors');
+  const pirocaAquatica = document.getElementById('pirocaAquatica');
+
+  if (variolaDoMacaco) {   
+    scissors.style.display = "none"
+    pirocaAquatica.style.display = "none"
+    variolaDoMacaco = false
+  } else {
+    scissors.style.display = "flex"
+    pirocaAquatica.style.display = "block"
+    variolaDoMacaco = true
+  }
+
+}
+
+
+
+
+
+
+
+function mostrarTeAmo() {
+  const inconstitucionalissimamente = document.getElementById("btn-limpar")
+  inconstitucionalissimamente.style.display = "none";
+  const canvas = document.getElementById("canvasAmor");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.display = "block";
+
+  const fontSize = 24;
+  const palavra = "TE AMO";
+  const columns = Math.floor(canvas.width / (ctx.measureText(palavra).width + 20));
+  const drops = Array(columns).fill(0);
+
+  ctx.font = `${fontSize}px monospace`;
+
+  function draw() {
+    // Fundo semi-transparente para dar efeito de fade nas letras caindo
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Texto grande "TE AMO ❤️" no centro do canvas, meio apagado
+    const bigText = "TE AMO ❤️";
+    ctx.font = "bold 80px cursive";
+    ctx.fillStyle = "rgba(255, 102, 204, 0.05)"; // rosa claro com transparência
+    const textWidth = ctx.measureText(bigText).width;
+    ctx.fillText(bigText, (canvas.width - textWidth) / 2, canvas.height / 2);
+
+    // Texto pequeno animado caindo
+    ctx.font = `${fontSize}px monospace`;
+    ctx.fillStyle = "#ff66cc";
+
+    for (let i = 0; i < columns; i++) {
+      const text = palavra;
+      const x = i * (ctx.measureText(palavra).width + 20);
+      const y = drops[i] * fontSize;
+
+      ctx.fillText(text, x, y);
+
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  const drawingInterval = setInterval(draw, 60);
+  setTimeout(() => {
+  // Mostra a imagem jumpscare depois de 20 segundos
+  const jumpscareImg = document.getElementById('jumpscare');
+  jumpscareImg.style.display = 'block';
+
+  // Opcional: para de desenhar no canvas após jumpscare
+  // Isso evita continuar consumindo processamento
+  clearInterval(drawingInterval);
+}, 20000);
+
+}
+
+
+
+
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu-buttons');
+
+toggle.addEventListener('click', () => {
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+});
