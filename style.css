@@ -94,6 +94,7 @@ html {
   z-index: 1;
   display: block;
   border-radius: 12px;
+  width: 40vmin;
 }
 
 .next__button {
