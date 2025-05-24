@@ -18,10 +18,10 @@ html {
     0 0 5px white,
     0 0 10px white,
     0 0 15px white,
-    0 0 20px rgb(255, 0, 0),   /* azul ciano */
-    0 0 30px rgb(51, 255, 0),
-    0 0 40px rgb(255, 0, 0),
-    0 0 55px rgb(76, 0, 255),
+    0 0 20px rgb(255, 255, 255),   /* azul ciano */
+    0 0 30px rgb(255, 255, 255),
+    0 0 40px rgb(255, 255, 255),
+    0 0 55px rgb(255, 255, 255),
     0 0 75px #0ff;
   
 }
@@ -85,28 +85,9 @@ html {
   margin: auto;
 }
 
-.image-border-glow {
-  position: relative;
-  display: inline-block;
-  padding: 5px;
-  border-radius: 12px;
-  overflow: hidden;
-}
 
-.image-border-glow::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    #00f, #0ff, #0f0, #ff0, #f00, #f0f, #00f
-  );
-  animation: rotate-glow 3s linear infinite;
-  z-index: 0;
-}
+
+
 
 .image-border-glow img {
   position: relative;
@@ -125,11 +106,11 @@ html {
   background-color: crimson;
   border-radius: 1rem;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 2rem;
   color: #d6b1b1;
   font-family: "poppins";
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 3rem;
   text-align: center;
   line-height: 2rem;
   cursor: pointer;
@@ -150,7 +131,7 @@ html {
   z-index: 999999999999;
 }
 
-/* .image__text {
+.image__text {
   font-family: "poppins";
   color: #fff;
   text-align: center;
@@ -162,21 +143,9 @@ html {
     font-size: 3rem; 
     animation: auraDance 1s infinite alternate ease-in-out;
   }
-} */
-
-.image__text  {
-  font-family: "poppins";
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
-    animation: glow 1.5s infinite alternate;
-  & p {
-    font-size: 1.5rem;
-  }
-  & h1 {    
-    font-size: 3rem; 
-  }
 }
+
+
 
 
 @keyframes glow {
@@ -320,18 +289,16 @@ html {
 }
 
 @media (min-width: 400px) and (max-width: 600px) {
-  .envelop {
-    width: 20rem;
-    height: 15rem;
-  }
+  
   .open__envelop {
     bottom: 70%;
   }
 }
 @media (min-width: 600px) {
   .envelop {
-    width: 25rem;
-    height: 20rem;
+    width: 30rem;
+    height: 25rem;
+
   }
 }
 @media (min-width: 600px) and (min-height: 600px) {
@@ -454,7 +421,7 @@ html {
   padding: 1rem;
 }
 .note__text p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin-bottom: 1rem;
   text-align: center;
 }
