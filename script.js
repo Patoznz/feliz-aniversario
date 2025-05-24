@@ -238,14 +238,17 @@ window.onresize = function (event) {
 let variolaDoMacaco = true
 
 function limparTela() {
+  const paulo = document.getElementById('background');
   const scissors = document.getElementById('scissors');
   const pirocaAquatica = document.getElementById('pirocaAquatica');
 
   if (variolaDoMacaco) {   
+    paulo.style.display = "none"
     scissors.style.display = "none"
     pirocaAquatica.style.display = "none"
     variolaDoMacaco = false
   } else {
+    paulo.style.display = "block"
     scissors.style.display = "flex"
     pirocaAquatica.style.display = "block"
     variolaDoMacaco = true
